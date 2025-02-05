@@ -1,12 +1,17 @@
 import os
-from scripts.src.data_loader import load_data
-from scripts.src.train import train_model
-from scripts.src.evaluate import evaluate_model
-from scripts.src.infer import infer
+import sys
+
+# Add scripts/src to Python path
+sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), "scripts", "src")))
+
+from data_loader import load_data
+from train import train_model
+from evaluate import evaluate_model
+from infer import infer
 
 def main():
     print("Starting Drowsy Driver Detection Pipeline...")
-    
+
     # Load dataset
     train_data, val_data, test_data = load_data()
 
