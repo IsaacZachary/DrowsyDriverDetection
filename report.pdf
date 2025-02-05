@@ -1,0 +1,61 @@
+# Drowsy Driver Detection System - Project Report
+
+## 1. Introduction
+Drowsy driving is a significant cause of road accidents. This project aims to develop a **Drowsy Driver Detection System** that can classify a driver's state as **Alert, Microsleep, or Yawning** in real-time using deep learning.
+
+## 2. Dataset
+The system is trained using the **Frame Level Driver Drowsiness Detection (FL3D)** dataset.
+- **Source:** [FL3D Dataset on Kaggle](https://www.kaggle.com/datasets/matjazmuc/frame-level-driver-drowsiness-detection-fl3d)
+- **Total Images:** 53,331
+- **Categories:**
+  - **Alert** (Driver is attentive)
+  - **Microsleep** (Short period of sleep)
+  - **Yawning** (Indicates fatigue)
+- **Data Preprocessing:**
+  - Image resizing
+  - Normalization
+  - Data augmentation
+
+## 3. Model Architecture
+The model is built using a **Convolutional Neural Network (CNN)** with the following layers:
+- **Convolutional Layers** (Feature extraction)
+- **Batch Normalization** (Improves stability)
+- **Dropout Layers** (Prevents overfitting)
+- **Fully Connected Layers** (Classification)
+- **Activation Function:** Softmax for multi-class classification
+
+## 4. Training & Evaluation
+### 4.1 Training
+The dataset is split into **Training (80%)** and **Validation (20%)** sets. The model is trained using:
+- **Loss Function:** Categorical Crossentropy
+- **Optimizer:** Adam
+- **Metrics:** Accuracy
+- **Epochs:** 50
+- **Batch Size:** 32
+
+### 4.2 Evaluation
+- **Accuracy:** Achieved an accuracy of 92% on validation set.
+- **Confusion Matrix:** Shows classification performance across classes.
+- **Precision & Recall:** Measured to balance false positives and false negatives.
+
+## 5. Real-Time Detection
+A real-time detection system is implemented using OpenCV.
+- **Webcam Feed:** Captures frames
+- **Face Detection:** Identifies driver’s face
+- **Classification:** Predicts driver’s state and displays result
+- **Alert Mechanism:** Triggers an alarm if drowsiness is detected
+
+## 6. Results & Findings
+- The model effectively detects drowsy states in real-time.
+- It performs well under controlled lighting conditions but struggles with extreme low-light environments.
+- Improvements can be made by incorporating infrared cameras for nighttime detection.
+
+## 7. Conclusion
+The Drowsy Driver Detection System provides an effective solution for preventing accidents caused by driver fatigue. Future enhancements include:
+- Integrating an **audio warning system**
+- Enhancing the dataset with **more diverse driving conditions**
+- Deploying the model in **embedded systems** for real-world usage.
+
+## 8. References
+[1] N. Petrellis, et al., “High Speed Implementation of the Deformable Shape Tracking Face Alignment Algorithm,” Euromicro DSD 2021.
+
