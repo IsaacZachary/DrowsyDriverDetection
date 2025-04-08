@@ -1,122 +1,214 @@
-# Drowsy Driver Detection
+# 💤 Drowsy Driver Detection 🚗💥
 
-## 🚀 Project Overview
-The **Drowsy Driver Detection** system is an AI-powered application designed to monitor driver alertness in real-time using deep learning and computer vision. The system classifies driver states into three categories: **Alert, Microsleep, and Yawning**, helping prevent accidents caused by drowsy driving.
+[![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
+![Python](https://img.shields.io/badge/Python-3.10-blue)
+![TensorFlow](https://img.shields.io/badge/TensorFlow-2.x-orange)
+![OpenCV](https://img.shields.io/badge/OpenCV-4.x-green)
+![Contributions Welcome](https://img.shields.io/badge/contributions-welcome-brightgreen.svg)
 
-This project leverages **TensorFlow, OpenCV, and a Convolutional Neural Network (CNN)** model trained on a dataset of driver facial states to predict drowsiness in real-time using webcam input.
+> ⚠️ Real-time AI-powered driver monitoring system to classify alertness states: **Alert**, **Microsleep**, and **Yawning**.
 
 ---
 
-## Dataset
-The model is trained using the **Frame Level Driver Drowsiness Detection (FL3D)** dataset from Kaggle:
-- **Dataset Source:** [FL3D Dataset](https://www.kaggle.com/datasets/matjazmuc/frame-level-driver-drowsiness-detection-fl3d)
-- The dataset consists of **53,331 images** labeled as:
-  - **Alert**
-  - **Microsleep**
-  - **Yawning**
+## 🚀 Project Overview
+
+The **Drowsy Driver Detection System** uses **Deep Learning**, **Computer Vision**, and **CNNs** to monitor a driver's facial state via webcam. It ensures enhanced road safety by detecting signs of fatigue and alerting drivers in real-time.
+
+🔍 **Key Features:**
+- Real-time video analysis via webcam
+- Classifies driver states (Alert / Microsleep / Yawning)
+- Alerts user with beep sound on drowsiness
+- Trainable and customizable model
+- Includes diagrams, screenshots, and a visual demo
+
+---
+
+## 🎥 Live Demo
+
+![Drowsy Driver Detection Demo](./assets/diagrams/demo_drowsy_detection.gif)
+
+---
+
+## 📊 Diagrams
+
+### 🧠 Enhanced System Architecture
+![System Architecture](./assets/diagrams/enhanced_system_architecture_diagram.png)
+
+### 📘 Use Case Diagram
+![Use Case](./assets/diagrams/enhanced_use_case_diagram.png)
+
+### 📦 Class Diagram
+![Class Diagram](./assets/diagrams/enhanced_class_diagram.png)
+
+---
+
+## 🖼️ Sample Output Screenshots
+
+| Training Phase | Evaluation Phase | Inference |
+|----------------|------------------|-----------|
+| ![train1](./assets/output%20screenshots/Train%201.PNG) | ![eval1](./assets/output%20screenshots/Evaluation%20image%201.PNG) | ![infer1](./assets/output%20screenshots/infer%20image%201.PNG) |
+| ![train2](./assets/output%20screenshots/training%20image%202.PNG) | ![eval2](./assets/output%20screenshots/Evaluation%20image%202.PNG) |   |
+| ![train3](./assets/output%20screenshots/Traininig%20image%203.PNG) |   |   |
+
+---
+
+## 📂 Project Structure
+
+```
+DrowsyDriverDetection/
+│
+├── assets/
+│   ├── diagrams/
+│   └── output screenshots/
+│
+├── dataset/
+├── models/
+├── scripts/
+├── utils/
+│
+├── data_loader.py
+├── refactored_drowsy_detection.py
+├── main.py
+├── requirements.txt
+└── README.md
+```
+
+---
+
+## 🧠 Dataset
+
+- **Source**: [Kaggle - Frame Level Driver Drowsiness Detection (FL3D)](https://www.kaggle.com/datasets/matjazmuc/frame-level-driver-drowsiness-detection-fl3d)
+- **Size**: 53,331 labeled images
+- **Labels**:
+  - 🟢 Alert
+  - 🟡 Microsleep
+  - 🔴 Yawning
 
 ---
 
 ## 🎯 Objectives
-- **Enhance Road Safety**: Reduce the risk of accidents by detecting drowsy drivers.
-- **Real-time Monitoring**: Provide real-time inference using webcam feeds.
-- **Accurate Classification**: Classify driver states with high precision.
-- **User-Friendly Deployment**: Ensure the system is easy to set up and run.
+
+- ✅ Detect signs of drowsiness in real-time
+- ✅ Raise awareness and prevent accidents
+- ✅ Support webcam and live deployment
+- ✅ Optimize performance using GPU (if available)
 
 ---
 
-## 📁 Project Structure
-```
-DrowsyDriverDetection/
-│── dataset/                     # Dataset directory (FL3D images)
-│── models/                      # Trained model directory
-│   ├── drowsy_driver_model.h5   # Saved CNN model
-│── scripts/
-│   ├── src/
-│   │   ├── train.py             # Model training script
-│   │   ├── evaluate.py          # Model evaluation script
-│   │   ├── infer.py             # Real-time inference script
-│   │   ├── data_loader.py       # Data preprocessing and loading
-│── requirements.txt             # Required dependencies
-│── README.md                    # Project documentation
-```
+## ⚙️ Setup & Installation Guide
 
----
+### 1️⃣ Prerequisites
 
-## 🛠️ Setup & Installation
-### 1️⃣ Clone the Repository
+- Python 3.10 (64-bit)
+- [Anaconda](https://www.anaconda.com/)
+- Git
+
+### 2️⃣ Clone Repository
+
 ```bash
 git clone https://github.com/IsaacZachary/DrowsyDriverDetection.git
 cd DrowsyDriverDetection
 ```
 
-### 2️⃣ Create a Virtual Environment (Recommended)
-```bash
-python -m venv venv
-source venv/bin/activate  # On Windows: venv\Scripts\activate
-```
+### 3️⃣ Setup Virtual Environment (VS Code or Terminal)
 
-### 3️⃣ Install Dependencies
 ```bash
+conda create --name drowsy_detection python=3.10
+conda activate drowsy_detection
 pip install -r requirements.txt
 ```
 
 ---
 
-## 🏋️‍♂️ Model Training
-To train the model on your dataset, run:
+## 🚦 Running the Model
+
+### 🏋️‍♂️ Training
+
 ```bash
-python scripts/src/train.py
+python refactored_drowsy_detection.py --train
 ```
-This will preprocess the data, train the CNN model, and save it in the `models/` directory.
 
----
+### 🧪 Evaluation
 
-## 📊 Model Evaluation
-To evaluate the trained model:
 ```bash
-python scripts/src/evaluate.py
+python refactored_drowsy_detection.py --evaluate
 ```
-This will output the test accuracy, loss, classification report, and confusion matrix.
 
----
+### 📸 Real-Time Inference (Webcam)
 
-## 🎥 Real-Time Drowsiness Detection
-To run real-time inference using a webcam:
 ```bash
-python scripts/src/infer.py
+python refactored_drowsy_detection.py --infer
 ```
-Press **'q'** to exit the webcam feed.
 
 ---
 
-## 🔍 Key Features
-✅ **Deep Learning Model** - CNN-based classification of driver states.
-✅ **Real-Time Detection** - Uses OpenCV to process live webcam input.
-✅ **High Accuracy** - Trained on a diverse dataset for reliable detection.
-✅ **Scalable** - Can be integrated into vehicle monitoring systems.
+## 📓 Jupyter Notebook Usage
+
+If using notebooks (e.g., `Google Colab`, `VS Code` Jupyter):
+
+```python
+!python refactored_drowsy_detection.py --train
+!python refactored_drowsy_detection.py --evaluate
+!python refactored_drowsy_detection.py --infer
+```
 
 ---
 
-## 📝 Future Improvements
-- 🚀 **Edge Deployment**: Optimize for Raspberry Pi and embedded systems.
-- 🎯 **Mobile App Integration**: Develop an Android/iOS app for real-time alerts.
-- 📈 **Dataset Expansion**: Train on more diverse driver images for better generalization.
+## 💻 How to Use in VS Code
+
+1. Open the folder using `File > Open Folder`
+2. Open integrated terminal (`Ctrl + ~`)
+3. Activate your environment:
+   ```bash
+   conda activate drowsy_detection
+   ```
+4. Run desired Python script (`refactored_drowsy_detection.py`) using run button or terminal.
+
+---
+
+## 🧠 Model Details
+
+- Model: Custom **CNN**
+- Libraries: `TensorFlow`, `OpenCV`, `NumPy`, `Pandas`, `Matplotlib`
+- GPU support: ✅
+- Alerts: Audio beeps on detection
 
 ---
 
 ## 🤝 Contributing
-We welcome contributions! Feel free to fork the repository, create a new branch, and submit a pull request.
+
+Contributions, ideas, and suggestions are warmly welcome! 🚀
+
+```bash
+1. Fork the repository
+2. Create your branch: `git checkout -b feature-name`
+3. Commit changes: `git commit -m 'Add some feature'`
+4. Push: `git push origin feature-name`
+5. Submit a pull request
+```
 
 ---
 
-## 📩 Contact & Support
-👨‍💻 **Developer:** Isaac Zachary  
-📧 **Email:** [isaaczachary18@gmail.com](mailto:isaaczachary18@gmail.com)  
-🔗 **GitHub:** [github.com/IsaacZachary](https://github.com/IsaacZachary)  
+## 🛡️ License
+
+This project is licensed under the MIT License.
 
 ---
 
-### 📜 License
-This project is open-source and available under the **MIT License**.
+## 👤 Author
 
+- **Isaac Zachary**
+- 📨 Email: [isaaczachary18@gmail.com](mailto:isaaczachary18@gmail.com)
+- 🧑‍💻 GitHub: [IsaacZachary](https://github.com/IsaacZachary)
+- 🌐 Portfolio: [Portfolio](https://isaaczachary.github.io/portfolio/)
+
+---
+
+## 🌟 Show Your Support
+
+If you find this helpful, kindly give it a ⭐ and share with others!
+
+---
+
+> “Technology is best when it brings people together.” — Matt Mullenweg
+```

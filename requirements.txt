@@ -6,3 +6,4 @@ opencv-python
 kaggle
 kagglehub
 scikit-learn
+graphviz

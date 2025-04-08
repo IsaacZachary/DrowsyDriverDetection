@@ -1,28 +1,15 @@
 import os
 import sys
 
-# Add scripts/src to Python path
-sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), "scripts", "src")))
+# Ensure the scripts directory is in the Python path
+sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), "scripts")))
 
-from data_loader import load_data
-from train import train_model
-from evaluate import evaluate_model
-from infer import infer
+# Import the refactored script
+import refactored_drowsy_detection
 
 def main():
     print("Starting Drowsy Driver Detection Pipeline...")
-
-    # Load dataset
-    train_data, val_data, test_data = load_data()
-
-    # Train model
-    model = train_model(train_data, val_data)
-
-    # Evaluate model
-    evaluate_model(model, test_data)
-
-    # Run inference on sample data
-    infer(model)
+    refactored_drowsy_detection.run()  # Call the main function in the refactored script
 
 if __name__ == "__main__":
     main()
